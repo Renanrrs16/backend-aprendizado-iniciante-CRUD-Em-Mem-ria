@@ -5,9 +5,11 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-//Endpoint /oi -> olá Mundo
-app.get('/oi', function (req, res){
-  res.send('Olá MUndo!!!!!!')
+const lista = ['Java', 'Kotlin', 'Android']
+
+//Endpoint Read all [GET] /personagem
+app.get('/personagem', function(req, res){
+  res.send(lista)
 })
 
 app.listen(3000, function(){
