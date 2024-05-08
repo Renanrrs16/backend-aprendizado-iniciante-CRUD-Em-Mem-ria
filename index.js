@@ -25,6 +25,24 @@ app.get('/personagem/:id', function(req, res){
   res.send(item)
 })
 
+//Sinaliza para o Express que estamos usando JSON no Body
+app.use(express.json())
+
+// Endpoint Create [POST] /personagem
+app.post('/personagem', function(req, res){
+  // Acessamos o body da Requisição
+  const body = req.body
+
+  // Aceitamos a Propriedade 'nome' no body
+  const novoitem = body.nome
+
+  // Adicionamos na lista
+  lista.push(novoitem)
+
+  // Exibimos a mensagem com sucesso
+  res.send('Item Adicionado com sucesso: ' + novoitem)
+})
+
 app.listen(5000, function(){
   console.log('Aplicação rodando em http://localhost:3000')
 })
